@@ -26,7 +26,7 @@ services:
       - db-data:/var/lib/postgresql/data
       - ./code/Database_Tables2.0.sql:/docker-entrypoint-initdb.d/Database_Tables2.0.sql
     environment:
-      - "POSTGRES_PASSWORD=kostas581994"
+      - "POSTGRES_PASSWORD=kostas"
       - "POSTGRES_USER=postgres"
       - "POSTGRES_DB=jewelery"
     restart: always

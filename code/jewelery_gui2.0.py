@@ -57,7 +57,7 @@ def Converter_double_Precision(number):
 		return result
 
 def run_query(query):
-		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas581994'")
+		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas'")
 		cursor=conn.cursor()
 		query_result=cursor.execute(query)
 		#conn.commit()
@@ -249,7 +249,7 @@ def Delete_Silver_Product(tree):
 				else:
 					temp2[i]="='%s'" % (temp[i])
 					temp3[i]="'%s'" % (temp[i])
-			conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas581994'")
+			conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas'")
 			cursor=conn.cursor()
 			query="SELECT COUNT(*) FROM \"Silver Product\" WHERE (\"Categorie\"%s AND \"Date\"%s AND \"Price\"%s AND \"Color\"%s AND \"Company\"%s)" % (temp2[0],temp2[1],temp2[2],temp2[3],temp2[4])
 			cursor.execute(query)
@@ -343,7 +343,7 @@ def Add_Silver_Product(temp1,temp2,temp3,temp4,temp5,temp6,temp7,temp8):#Insert 
 			temp4="NULL"
 		else:
 			temp4="'"+temp4+"'"
-		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas581994'")
+		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas'")
 		cursor=conn.cursor()
 		query="INSERT INTO \"Silver Product\"(\"Categorie\",\"Date\",\"Price\",\"Color\",\"Company\") VALUES (%s,%s,%s,%s,%s);" % (temp1,temp2,temp3,temp4,temp5)
 		query_result=cursor.execute(query)
@@ -442,7 +442,7 @@ def Delete_Gold_Product(tree):
 				else:
 					temp2[i]="='%s'" % (temp[i])
 					temp3[i]="'%s'" % (temp[i])
-			conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas581994'")
+			conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas'")
 			cursor=conn.cursor()
 			query="SELECT COUNT(*) FROM \"Gold Product\" WHERE (\"Categorie\"%s AND \"Date\"%s AND \"Price\"%s AND \"Color\"%s AND \"Company\"%s AND \"Quality\"%s AND \"Weight\"%s)" % (temp2[0],temp2[1],temp2[2],temp2[3],temp2[4],temp2[5],temp2[6])
 			cursor.execute(query)
@@ -549,7 +549,7 @@ def Add_Gold_Product(temp1,temp2,temp3,temp4,temp5,temp6,temp7,temp8,temp9,temp1
 			temp4="NULL"
 		else:
 			temp4="'"+temp4+"'"
-		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas581994'")
+		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas'")
 		cursor=conn.cursor()
 		query="INSERT INTO \"Gold Product\"(\"Categorie\",\"Date\",\"Price\",\"Color\",\"Company\",\"Quality\",\"Weight\") VALUES (%s,%s,%s,%s,%s,%s,%s);" % (temp1,temp2,temp3,temp4,temp5,temp6,temp7)
 		query_result=cursor.execute(query)
@@ -649,7 +649,7 @@ def click3_frame2():
 
 def Delete_Category(tree):#Delete Categories from db
 	for selected_item in tree.selection():
-		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas581994'")
+		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas'")
 		cursor=conn.cursor()
 		query="DELETE FROM \"Categories\" WHERE (\"Name\"='"+tree.set(selected_item,'#1')+"')"
 		query_result=cursor.execute(query)
@@ -677,7 +677,7 @@ def Edit_Category(temp1,temp2):
 	if (len(temp1)==0):
 		Label(window,text="Το πεδίο πρέπει να συμπληρωθεί για την ενημέρωση!!*",fg="red").grid(row=1,column=1,padx=(10,10),pady=(10,10))
 	else:
-		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas581994'")
+		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas'")
 		cursor=conn.cursor()
 		query="UPDATE \"Categories\" SET \"Name\"='"+temp1+"' WHERE \"Name\"='"+temp2+"'"
 		query_result=cursor.execute(query)
@@ -719,7 +719,7 @@ def Add_Category(temp1):
 	else:
 		clear()
 		click2_frame2()
-		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas581994'")
+		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas'")
 		cursor=conn.cursor()
 		query="INSERT INTO \"Categories\"(\"Name\") VALUES ('"+temp1+"');"
 		query_result=cursor.execute(query)
@@ -770,7 +770,7 @@ def Edit_Supplier(temp1,temp2,temp3,temp4,temp5,temp6,temp7,temp8,temp9):
 	if (len(temp1)==0):
 		Label(window,text="Πρέπει να δωθεί το όνομα της εταιρείας!!",fg="red").grid(row=1,column=1,padx=(10,10),pady=(10,10))
 	else:
-		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas581994'")
+		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas'")
 		cursor=conn.cursor()
 		query="UPDATE \"Supplier\" SET \"Company\"='"+temp1+"',\"Name\"='"+temp2+"',\"Surname\"='"+temp3+"',\"Address\"='"+temp4+"',\"Phone\"='"+temp5+"',\"Mobile Phone\"='"+temp6+"',\"Bank Account\"='"+temp7+"',\"Bank Account2\"='"+temp8+"' WHERE (\"Company\"='"+temp9+"')"
 		query_result=cursor.execute(query)
@@ -856,7 +856,7 @@ def Add_Supplier(temp1,temp2,temp3,temp4,temp5,temp6,temp7,temp8):#Insert Suppli
 	else:
 		clear()
 		click1_frame2()
-		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas581994'")
+		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas'")
 		cursor=conn.cursor()
 		query="INSERT INTO \"Supplier\"(\"Company\",\"Name\",\"Surname\",\"Address\",\"Phone\",\"Mobile Phone\",\"Bank Account\",\"Bank Account2\") VALUES ('"+temp1+"','"+temp2+"','"+temp3+"','"+temp4+"','"+temp5+"','"+temp6+"','"+temp7+"','"+temp8+"');"
 		query_result=cursor.execute(query)
@@ -898,7 +898,7 @@ def click1_frame2_click2_frame3():
 
 def Delete_Supplier(tree):#Delete Suppliers from db
 	for selected_item in tree.selection():
-		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas581994'")
+		conn=psycopg2.connect("host='postgres-db' dbname='jewelery' user='postgres' password='kostas'")
 		cursor=conn.cursor()
 		query="DELETE FROM \"Supplier\" WHERE (\"Company\"='"+tree.set(selected_item,'#1')+"')"
 		query_result=cursor.execute(query)
